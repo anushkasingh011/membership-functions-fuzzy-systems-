@@ -9,4 +9,19 @@ Unlike classical (crisp) sets where membership is strictly binary (0 or 1), fuzz
 • Trapezoidal MF — defined by four parameters (a, b, c, d): linear rise from a to b, flat top (full membership) from b to c, linear fall from c to d. 
 • Gaussian MF — defined by mean (c) and standard deviation (σ): smooth symmetric bell curve. Differentiable, ideal for adaptive neuro-fuzzy systems. 
 • Sigmoidal MF — defined by slope (a) and inflection point (c): monotonically increasing (or decreasing). Suitable for open-ended boundary conditions. 
-• Generalized Bell MF — defined by width (a), slope (b), center (c): symmetric smooth bell with independently controllable width and slope. Mathematical Definitions: Triangular:    μ(x) = max( min( (x-a)/(b-a),  (c-x)/(c-b) ),  0 ) Trapezoidal:   μ(x) = max( min( (x-a)/(b-a),  1,  (d-x)/(d-c) ),  0 ) Gaussian:      μ(x) = exp( -( (x - c)² ) / ( 2σ² ) ) Sigmoidal:     Bell:          μ(x) = 1 / ( 1 + exp( -a(x - c) ) ) μ(x) = 1 / ( 1 + | (x - c) / a |^(2b) ) 
+• Generalized Bell MF — defined by width (a), slope (b), center (c): symmetric smooth bell with independently controllable width and slope.
+
+<img width="1021" height="209" alt="image" src="https://github.com/user-attachments/assets/4278536e-f3e3-40ef-88d6-e36c5f3feb1d" />
+
+  Algorithm: 
+  Step 1:  Import NumPy for numerical computation and Matplotlib for plotting.
+  Step 2:  Define the universe of discourse x as a NumPy linspace array over [0, 10]. 
+  Step 3:  Define each membership function as a Python function: Step 3.1: triangular(x, a, b, c)  — with division-by-zero guard using np.where.
+  Step 3.2: trapezoidal(x, a, b, c, d)  — with np.minimum and np.maximum clipping. Step 3.3: gaussian(x, c, sigma)  — using np.exp. Step 3.4: sigmoidal(x, a, c)  — using np.exp with slope and center. Step 3.5: bell(x, a, b, c)  — using np.abs with exponent. 
+  Step 4:  Compute membership values by calling each function over array x. 
+  Step 5:  Create a figure using plt.figure() and plot all five functions. 
+  Step 6:  Label x-axis as 'Universe of Discourse', y-axis as 'Degree of Membership μ(x)'. 
+  Step 7:  Add title, legend, grid, and set y-axis limits to [-0.05, 1.1]. 
+  Step 8:  Save the figure using plt.savefig() and display with plt.show(). 
+  Step 9:  Vary parameters (e.g., change σ in Gaussian) and re-run to observe shape changes.
+  Step 10: Stop. 
