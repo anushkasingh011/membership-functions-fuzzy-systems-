@@ -1,4 +1,11 @@
 # membership-functions-fuzzy-systems-
+ Objectives: 
+ • To understand the concept of fuzzy sets and membership functions.
+ • To distinguish between different shapes of membership functions and their defining parameters. 
+ • To implement membership functions from scratch using Python (NumPy) without external fuzzy libraries.
+ • To visualize and compare all membership functions on a single plot using Matplotlib.
+ • To observe the effect of parameter variation on the shape and behavior of each function. 
+ 
 A fuzzy set A in a universe of discourse X is characterized by a membership function μ_A(x) : X → [0, 1], which assigns to each element x ∈ X a degree of membership in A. 
 Unlike classical (crisp) sets where membership is strictly binary (0 or 1), fuzzy sets allow partial membership — enabling the modeling of gradual, imprecise, or linguistic concepts such as 'tall', 'hot', or 'fast'. Key terminologies associated with a membership function are:
 • Core: The region of the universe where μ_A(x) = 1 (full membership).
